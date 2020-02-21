@@ -1,0 +1,16 @@
+.PostListComponent{
+    margin-top: 5%;
+}
+.card {
+    margin-top: 2%;
+}
+
+.dashboard {
+    margin-left: 0%;
+    margin-right: 0%;
+    max-width: 2000px;
+}
+
+.addpost{
+    margin-top: 1.5%;
+}
