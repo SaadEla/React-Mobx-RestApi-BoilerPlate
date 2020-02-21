@@ -13,7 +13,19 @@ import CommentService from '../services/commentservice';
       let respon = res.data.slice(0,5);
       this.comments = respon;
     });
-};
+  };
+  
+  deleteComment = (id) => {
+    console.log("%cArrived to fromaddPostComponent", "color: blue; font-size: 14px");
+    console.log(id)
+    CommentService.deleteComment(id)
+    .then(res => {
+      console.log("%cSucces", "color: blue; font-size: 14px");
+      this.comments = this.comments.filter((yy)=>{return yy.id!==id});
+      console.log(res)
+
+    });
+  };
 
 }
 

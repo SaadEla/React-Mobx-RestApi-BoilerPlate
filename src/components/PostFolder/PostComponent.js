@@ -6,9 +6,6 @@ import { observer, inject} from 'mobx-react';
 
 class PostComponent extends React.Component  {
   //console.log("PostComponent", props);
-  componentDidMount(){
-    this.props.store.postmodel.loadpost();
-  }
   render(){
   return (
     <div className="dashboard container">
@@ -17,7 +14,7 @@ class PostComponent extends React.Component  {
         <PostList store ={this.props.store}/>
       </div>
       <div className="col s12 m5  addpost" >
-        <AddPostComponent />
+        <AddPostComponent  store ={this.props.store} />
       </div>
     </div>
   </div>

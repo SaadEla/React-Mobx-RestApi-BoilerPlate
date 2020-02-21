@@ -9,17 +9,19 @@ class CommentListComponent extends React.Component  {
   componentDidMount(){
     this.props.store.commentmodel.loadcomment();
   }
-
-  Lcomments = this.props.store.commentmodel.comments
-  commenta =  this.Lcomments && this.Lcomments.map( comment => {
-    return(
-        <CommentDetailComponent comment={comment} key={comment.id} />
-    )
-  });
   render(){
+    console.log("%cRender CommentListComponent", "color: green; font-size: 20px")
     return (
       <div className="CommentListComponent">
-        {this.commenta ? this.commenta : <p>No comment found</p>}
+        {
+          this.props.store.commentmodel.comments ? 
+          this.props.store.commentmodel.comments && this.props.store.commentmodel.comments.map( comment => {
+          return(
+              <CommentDetailComponent store ={this.props.store} comment={comment} key={comment.id} />
+          )
+        }) 
+        : 
+        <p>No comment found</p>}
       </div>
     )
   };

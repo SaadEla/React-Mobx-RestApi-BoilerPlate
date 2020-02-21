@@ -1,17 +1,18 @@
 import axios from "axios";
-import AddPostComponent from "../components/PostFolder/AddPostComponent";
 
-export default {
-    instance(){
+export default class PostService {
+   static instance(){
         return axios.create()
-    },
+    }
     
-    getPosts(){
-        return this.instance().get('https://jsonplaceholder.typicode.com/posts')
-     },
+    static getPosts(){
+        return PostService.instance().get('https://jsonplaceholder.typicode.com/posts')
+     }
 
-    addPost(){
-
+    static addPostServ(popo){
+        console.log("%cArrived to PostService", "color: blue; font-size: 14px");
+        console.log(popo)
+        return PostService.instance().post('https://jsonplaceholder.typicode.com/posts', {popo})
     }
 
 }
